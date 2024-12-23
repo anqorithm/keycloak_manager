@@ -2,3 +2,5 @@
 __pycache__
 logs
 app.py
+keycloak_operations.log
+dist
