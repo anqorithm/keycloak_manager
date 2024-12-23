@@ -26,6 +26,9 @@ def mock_response():
         "access_token": "test_token",
         "token_type": "Bearer",
         "expires_in": 300,
+        "refresh_expires_in": 1800,
+        "refresh_token": "test_refresh_token",
+        "session_state": "test_session_state",
         "scope": "openid email profile",
     }
     mock.headers = {
@@ -194,7 +197,9 @@ def test_get_user_token(mock_post, keycloak_manager, mock_response, caplog):
     print(f"Request URL: {call_args[0][0]}")
     print(f"Request Data: {call_args[1]['data']}")
 
-    assert token_response == mock_response.json(), "Token response mismatch"
+    assert (
+        token_response.model_dump() == mock_response.json()
+    ), "Token response mismatch"
     assert call_args[1]["data"]["username"] == "test_user"
     assert call_args[1]["data"]["scope"] == "custom_scope"
 

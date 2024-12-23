@@ -1,5 +1,5 @@
 from typing import Dict, List, Optional
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
 
 
 class UserAttributes(BaseModel):
@@ -18,6 +18,8 @@ class UserAccess(BaseModel):
 
 class UserCreate(BaseModel):
     """User creation request model"""
+    model_config = ConfigDict(populate_by_name=True)
+
     username: str
     email: EmailStr
     first_name: str = Field(alias="firstName")
@@ -29,9 +31,6 @@ class UserCreate(BaseModel):
     attributes: Dict[str, List[str]] = Field(default_factory=dict)
     groups: List[str] = Field(default_factory=list)
     access: Optional[UserAccess] = None
-
-    class Config:
-        populate_by_name = True
 
 
 class PasswordUpdate(BaseModel):

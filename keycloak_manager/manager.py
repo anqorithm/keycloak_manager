@@ -2,7 +2,13 @@ import requests
 import json
 from typing import Dict, List, Optional, Any
 
-from .models import UserAttributes, UserCreate, UserAccess, PasswordUpdate, TokenResponse
+from .models import (
+    UserAttributes,
+    UserCreate,
+    UserAccess,
+    PasswordUpdate,
+    TokenResponse,
+)
 
 
 class KeycloakManager:
@@ -13,7 +19,7 @@ class KeycloakManager:
         admin_username: str = "admin",
         admin_password: str = "admin",
         client_id: str = "keycloak-auth-flow",
-        client_secret: str = "POrF8AsCgX4NL7QErSA6UZzfY2X66nHK",
+        client_secret: str = "6YT6VY28YoqyyWsMtbvXmpKYTbKQPXwJ",
     ):
         """
         Initialize KeycloakManager with configurable parameters
@@ -117,7 +123,9 @@ class KeycloakManager:
             access=UserAccess(**access) if access else None,
         )
 
-        response = requests.post(url, headers=headers, json=user_data.model_dump(by_alias=True))
+        response = requests.post(
+            url, headers=headers, json=user_data.model_dump(by_alias=True)
+        )
         response.raise_for_status()
 
         user_id = response.headers["Location"].split("/")[-1]
