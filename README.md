@@ -4,7 +4,7 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/keycloak-manager.svg)](https://pypi.org/project/keycloak-manager)
 [![License](https://img.shields.io/pypi/l/keycloak-manager.svg)](https://pypi.org/project/keycloak-manager/)
 
-A simple Python package to work with Keycloak users and login systems. Makes it easy to create and manage users, handle logins, and work with user tokens - all through clean and easy-to-use Python code.
+A simple Python package to work with Keycloak users and login systems. Makes it easy to create and manage users, handle logins, and work with user tokens all through clean and easy-to-use Python code.
 
 ## Features
 
