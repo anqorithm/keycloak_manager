@@ -2,7 +2,7 @@
 name = "keyclock-auth-flow"
 version = "0.1.0"
 description = ""
-authors = ["Abdullah Alqahtani <0xqahta0@gmail.com>"]
+authors = ["Abdullah Alqahtani <anqorithm@protonmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
